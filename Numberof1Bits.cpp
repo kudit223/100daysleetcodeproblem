@@ -29,11 +29,32 @@ The input must be a binary string of length 32.
  
 
 Follow up: If this function is called many times, how would you optimize it?*/
+--------------------------------------------------approach1-----------------------------------------------
+//it take high time complexity but less space than vector of bool
 class Solution {
 public:
     int hammingWeight(uint32_t n) {
         bitset<32>v(n);
         return v.count();
+        
+    }
+};
+---------------------------------------------------approach2-----------------------------------------------
+ //time complexity :O(log n)
+ //space complexity:O(1)
+ class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+       int countt=0,p;
+       while(n!=0)
+       {
+           if(n==1)
+           return ++countt;
+           else if(n%2)
+           countt++;
+           n=n/2;
+       }
+       return countt;
         
     }
 };

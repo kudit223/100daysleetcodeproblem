@@ -20,6 +20,7 @@ Constraints:
 
 1 <= nums.length <= 105
 0 <= nums[i] <= 105*/
+
 class Solution {
 public:
     int solve(vector<int>&nums,int s,int e,int n)
@@ -37,5 +38,26 @@ public:
         int n=nums.size();
         return solve(nums,0,n-1,n);
         
+    }
+};
+------------------------------------------------------------approach2---------------------------------------
+ //time complexity:O(logn)
+//space complexity:O(1)
+class Solution {
+public:
+    int solve(vector<int>&nums,int s,int e)
+    {
+        int mid=s+(e-s)/2;
+        if(mid%2==0)
+        mid++;
+        if(s==e)
+        return nums[s];
+        if(nums[mid]==nums[mid-1])
+        return solve(nums,mid+1,e);
+        return solve(nums,s,mid-1);
+    }
+    int singleNonDuplicate(vector<int>& nums) {
+        int n=nums.size();
+        return solve(nums,0,n-1);    
     }
 };

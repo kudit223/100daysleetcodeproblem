@@ -53,3 +53,19 @@ public:
 
     }
 };
+//time complexity:O(1)
+//space complexity:O(1)
+class Solution {
+public:
+    int clumsy(int n) {
+        if(n<=2)
+        return n;
+        if(n<=4)
+        return n+3;
+        if(n%4==0)
+        return n+1;
+        if(n%4==1||n%4==2)
+        return n+2;
+        return n-1;
+    }
+};
